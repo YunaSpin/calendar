@@ -21,7 +21,7 @@ function becomeDate(nowYear,nowMonth){
     let haveschedule;
     for (var i = 1; i <= rows; i++) {
         var tri = table.insertRow();
-        for (var j = 1; j <= 7; j++) {
+        for (var j = 1; j <= cols; j++) {
             var tdi = tri.insertCell();
             if (i === 1 && j < firstDay + 1)
                 tdi.innerHTML = "";
@@ -89,7 +89,9 @@ function show() {
         document.getElementById("showschedule").value = localstorage[title]
     } else {
         console.log("here")
-        document.getElementById("showschedule").value = "今日暂时无日程"
+        var showschedule = document.getElementById("showschedule")
+        showschedule.value = ""
+        showschedule.placeholder = "今日暂时无日程"
     }
     this.id="thisone"
     this.style.borderStyle = "solid"
@@ -98,7 +100,7 @@ function show() {
 
 function saveschedule() {
     var showschedule = document.getElementById("showschedule")
-    if (showschedule.value.match("今日暂时无日程")  || nowDay === 0){
+    if (showschedule.value === ""  || nowDay === 0){
         alert("文本区不能为空，或者没有选择日期")
     } else {
         var title = nowYear.toString() + nowMonth.toString() + nowDay.toString()
