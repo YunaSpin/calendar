@@ -115,7 +115,8 @@ function deletschedule() {
     if (localstorage[title] && nowDay !== 0){
         if (confirm("您确定要删除此条日程？")){
             document.getElementById("thisone").style.backgroundColor = null
-            document.getElementById("showschedule").value = "今日暂时无日程"
+            document.getElementById("showschedule").value = ""
+            document.getElementById("showschedule").placeholder = "今日暂时无日程"
             delete localstorage[title]
         }
     } else {
