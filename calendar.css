@@ -60,3 +60,7 @@
     resize: none;
     font-size: 20px;
 }
+td{
+    text-align: center;
+    border-radius: 50%;
+}
